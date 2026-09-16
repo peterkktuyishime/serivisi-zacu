@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Serivisi Zacu Rwanda</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.6;
+    transition:0.3s;
+}
+
+body.dark{
+    background:#121212;
+    color:#eee;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#0b3d91;
+    color:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    color:#ffd21c;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.dark-btn{
+    background:#ffd21c;
+    color:#111;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0b3d91,#1769d1);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:19px;
+    max-width:750px;
+    margin:auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 22px;
+    border-radius:8px;
+    background:#ffd21c;
+    color:#111;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.section-title{
+    text-align:center;
+    color:#0b3d91;
+    margin-bottom:35px;
+    font-size:30px;
+}
+
+.dark .section-title{
+    color:#ffd21c;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.dark .card{
+    background:#1e1e1e;
+    box-shadow:0 3px 12px rgba(255,255,255,0.04);
+}
+
+.card h3{
+    color:#0b3d91;
+    margin-bottom:10px;
+}
+
+.dark .card h3{
+    color:#ffd21c;
+}
+
+.price{
+    color:#d89b00;
+    font-weight:bold;
+}
+
+.payment-box{
+    background:white;
+    border-radius:14px;
+    padding:30px;
+    box-shadow:0 3px 15px rgba(0,0,0,0.1);
+    max-width:800px;
+    margin:auto;
+}
+
+.dark .payment-box{
+    background:#1e1e1e;
+}
+
+.payment-methods{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin:25px 0;
+}
+
+.payment-method{
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+}
+
+.dark .payment-method{
+    border-color:#444;
+}
+
+.payment-method h3{
+    margin-bottom:8px;
+}
+
+.mtn{
+    border-color:#ffd21c;
+}
+
+.airtel{
+    border-color:#e00000;
+}
+
+.payment-number{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.copy-btn{
+    margin-top:10px;
+    padding:8px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    background:#0b3d91;
+    color:white;
+}
+
+form{
+    max-width:800px;
+    margin:auto;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+    background:white;
+    color:#222;
+}
+
+.dark input,
+.dark select,
+.dark textarea{
+    background:#292929;
+    color:white;
+    border-color:#555;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.payment-status{
+    background:#eef5ff;
+    border-left:5px solid #0b3d91;
+    padding:15px;
+    margin:20px 0;
+    border-radius:6px;
+}
+
+.dark .payment-status{
+    background:#202b38;
+}
+
+.about{
+    text-align:center;
+    max-width:900px;
+}
+
+.reasons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.reason{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+}
+
+.dark .reason{
+    background:#1e1e1e;
+}
+
+.prices{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+.dark table{
+    background:#1e1e1e;
+}
+
+th,td{
+    padding:14px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+.dark th,
+.dark td{
+    border-color:#444;
+}
+
+th{
+    background:#0b3d91;
+    color:white;
+}
+
+.admin-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 15px rgba(0,0,0,0.1);
+}
+
+.dark .admin-box{
+    background:#1e1e1e;
+}
+
+.order{
+    border:1px solid #ddd;
+    padding:15px;
+    margin-top:15px;
+    border-radius:8px;
+}
+
+.dark .order{
+    border-color:#444;
+}
+
+.delete-btn{
+    background:#d62828;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.clear-btn{
+    background:#b00020;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+footer{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#25d366;
+    color:white;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:28px;
+    z-index:999;
+    box-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+
+.toast{
+    position:fixed;
+    right:20px;
+    top:80px;
+    background:#222;
+    color:white;
+    padding:15px 20px;
+    border-radius:8px;
+    display:none;
+    z-index:2000;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    color:#222;
+    padding:30px;
+    border-radius:14px;
+    max-width:500px;
+    width:100%;
+    text-align:center;
+}
+
+.dark .modal-content{
+    background:#1e1e1e;
+    color:white;
+}
+
+.close-modal{
+    margin-top:15px;
+    background:#777;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+@media(max-width:850px){
+
+    .services,
+    .reasons{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#0b3d91;
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+}
+
+@media(max-width:600px){
+
+    .services,
+    .reasons,
+    .payment-methods{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:60px 15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    section{
+        padding:45px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            Serivisi Zacu Rwanda
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">?</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" onclick="closeMenu()">Ahabanza</a>
+            <a href="#services" onclick="closeMenu()">Serivisi</a>
+            <a href="#payment" onclick="closeMenu()">Payment</a>
+            <a href="#about" onclick="closeMenu()">Abo turi bo</a>
+            <a href="#contact" onclick="closeMenu()">Twandikire</a>
+            <button class="dark-btn" onclick="toggleDark()">Dark / Light</button>
+        </nav>
+
+    </div>
+</header>
+
+<section class="hero" id="home">
+
+    <h1>Serivisi za Digital zizewe kandi zihendutse</h1>
+
+    <p>
+        Turagufasha kubona serivisi zitandukanye za digital
+        mu buryo bwihuse, bworoshye kandi bwizewe.
+    </p>
+
+    <a href="#services" class="btn">
+        Reba Serivisi
+    </a>
+
+</section>
+
+<section id="services">
+
+    <h2 class="section-title">
+        Serivisi Dutanga
+    </h2>
+
+    <div class="services">
+
+        <div class="card">
+            <h3>CV & Motivation Letter</h3>
+            <p>
+                Turagutegurira CV nziza kandi professional hamwe
+                na Motivation Letter.
+            </p>
+            <p class="price">
+                Guhera kuri 3,000 RWF
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Professional Photo Editing</h3>
+            <p>
+                Duhindura amafoto yawe akagaragara neza
+                kandi professional.
+            </p>
+            <p class="price">
+                Guhera kuri 2,000 RWF
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Website Creation</h3>
+            <p>
+                Turakubakira website ijyanye n'ubucuruzi
+                cyangwa umushinga wawe.
+            </p>
+            <p class="price">
+                Guhera kuri 30,000 RWF
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Online Applications</h3>
+            <p>
+                Turagufasha gukora applications zitandukanye
+                kuri internet.
+            </p>
+            <p class="price">
+                Guhera kuri 1,000 RWF
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Documents & Printing</h3>
+            <p>
+                Gutegura documents, printing n'izindi serivisi
+                zijyanye n'impapuro.
+            </p>
+            <p class="price">
+                Ibiciro biratandukanye
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Digital Support</h3>
+            <p>
+                Turagufasha gukemura ibibazo bitandukanye
+                bijyanye na technology na digital services.
+            </p>
+            <p class="price">
+                Guhera kuri 1,000 RWF
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">
+        Ibiciro
+    </h2>
+
+    <div class="prices">
+
+        <table>
+
+            <tr>
+                <th>Serivisi</th>
+                <th>Igiciro</th>
+            </tr>
+
+            <tr>
+                <td>CV Professional</td>
+                <td>3,000 RWF+</td>
+            </tr>
+
+            <tr>
+                <td>Motivation Letter</td>
+                <td>2,000 RWF+</td>
+            </tr>
+
+            <tr>
+                <td>Photo Editing</td>
+                <td>2,000 RWF+</td>
+            </tr>
+
+            <tr>
+                <td>Website Creation</td>
+                <td>30,000 RWF+</td>
+            </tr>
+
+            <tr>
+                <td>Online Application</td>
+                <td>1,000 RWF+</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</section>
+
+<section id="payment">
+
+    <h2 class="section-title">
+        Uburyo bwo Kwishyura
+    </h2>
+
+    <div class="payment-box">
+
+        <p>
+            Nyuma yo gutumiza serivisi, ushobora kwishyura
+            ukoresheje MTN MoMo cyangwa Airtel Money.
+        </p>
+
+        <div class="payment-methods">
+
+            <div class="payment-method mtn">
+
+                <h3>MTN MoMo</h3>
+
+                <p>
+                    Ohereza amafaranga kuri:
+                </p>
+
+                <div class="payment-number">
+                    0780973540
+                </div>
+
+                <button class="copy-btn"
+                    onclick="copyNumber('0780973540')">
+                    Copy Number
+                </button>
+
+            </div>
+
+            <div class="payment-method airtel">
+
+                <h3>Airtel Money</h3>
+
+                <p>
+                    Ohereza amafaranga kuri:
+                </p>
+
+                <div class="payment-number">
+                    0738550073
+                </div>
+
+                <button class="copy-btn"
+                    onclick="copyNumber('0738550073')">
+                    Copy Number
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="payment-status">
+
+            <strong>Ni ngombwa:</strong>
+
+            <p>
+                Nyuma yo kwishyura, andika Transaction ID
+                yawe muri form iri hasi kugira ngo tumenye
+                payment yawe.
+            </p>
+
+        </div>
+
+        <form id="orderForm">
+
+            <div class="form-group">
+
+                <label for="customerName">
+                    Amazina yawe
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    required
+                    placeholder="Andika amazina yawe"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="customerPhone">
+                    Telephone
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    required
+                    placeholder="07XXXXXXXX"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="service">
+                    Hitamo serivisi
+                </label>
+
+                <select id="service" required>
+
+                    <option value="">
+                        -- Hitamo Serivisi --
+                    </option>
+
+                    <option value="CV & Motivation Letter">
+                        CV & Motivation Letter
+                    </option>
+
+                    <option value="Professional Photo Editing">
+                        Professional Photo Editing
+                    </option>
+
+                    <option value="Website Creation">
+                        Website Creation
+                    </option>
+
+                    <option value="Online Applications">
+                        Online Applications
+                    </option>
+
+                    <option value="Documents & Printing">
+                        Documents & Printing
+                    </option>
+
+                    <option value="Digital Support">
+                        Digital Support
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="description">
+                    Ibisobanuro
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Sobanura ibyo ushaka..."
+                ></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="paymentMethod">
+                    Uburyo wishyuye
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option value="">
+                        -- Hitamo --
+                    </option>
+
+                    <option value="MTN MoMo">
+                        MTN MoMo
+                    </option>
+
+                    <option value="Airtel Money">
+                        Airtel Money
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="transactionId">
+                    Transaction ID
+                </label>
+
+                <input
+                    type="text"
+                    id="transactionId"
+                    placeholder="Urugero: 123456789"
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn"
+            >
+                Ohereza Order
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2 class="section-title">
+        Impamvu ugomba kuduhitamo
+    </h2>
+
+    <div class="reasons">
+
+        <div class="reason">
+            <h3>Igiciro Gito</h3>
+            <p>
+                Dutanga serivisi ku biciro bishoboka
+                kandi bihendutse.
+            </p>
+        </div>
+
+        <div class="reason">
+            <h3>Serivisi Yihuse</h3>
+            <p>
+                Dukora orders zawe mu gihe gito
+                kandi neza.
+            </p>
+        </div>
+
+        <div class="reason">
+            <h3>Kwizerwa</h3>
+            <p>
+                Dushyira imbere ubunyangamugayo
+                n'ubwizerwe.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <h2 class="section-title">
+        Abo Turi Bo
+    </h2>
+
+    <div class="about">
+
+        <p>
+            <strong>Serivisi Zacu Rwanda</strong> ni urubuga
+            rugamije gufasha abantu kubona serivisi za digital
+            mu buryo bworoshye kandi buhendutse.
+        </p>
+
+        <p>
+            Turatanga serivisi zijyanye na CV, Motivation Letter,
+            photo editing, website, online applications,
+            documents ndetse na digital support.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <h2 class="section-title">
+        Twandikire
+    </h2>
+
+    <div class="about">
+
+        <p>
+            Ufite ikibazo cyangwa ushaka gutumiza serivisi?
+        </p>
+
+        <a
+            class="btn"
+            href="https://wa.me/250780973540"
+            target="_blank"
+        >
+            Twandikire kuri WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+<section id="admin">
+
+    <h2 class="section-title">
+        Admin
+    </h2>
+
+    <div class="admin-box">
+
+        <div id="loginArea">
+
+            <h3>Admin Login</h3>
+
+            <br>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Andika password"
+            >
+
+            <button
+                class="btn"
+                onclick="adminLogin()"
+            >
+                Injira
+            </button>
+
+            <p id="loginMessage"></p>
+
+        </div>
+
+        <div id="adminArea" style="display:none;">
+
+            <h3>Orders Zakiriwe</h3>
+
+            <br>
+
+            <button
+                class="clear-btn"
+                onclick="clearOrders()"
+            >
+                Siba Orders Zose
+            </button>
+
+            <div id="ordersList"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        © 2026 Serivisi Zacu Rwanda
+    </p>
+
+    <p>
+        Serivisi za Digital zizewe kandi zihendutse.
+    </p>
+
+</footer>
+
+<a
+    class="whatsapp"
+    href="https://wa.me/250780973540"
+    target="_blank"
+    title="WhatsApp"
+>
+    W
+</a>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal" id="successModal">
+
+    <div class="modal-content">
+
+        <h2>Order Yakiriwe neza!</h2>
+
+        <br>
+
+        <p>
+            Order yawe yabitswe neza.
+        </p>
+
+        <p>
+            Ushobora no kohereza confirmation kuri WhatsApp.
+        </p>
+
+        <button
+            class="btn"
+            onclick="sendWhatsApp()"
+        >
+            Ohereza kuri WhatsApp
+        </button>
+
+        <br>
+
+        <button
+            class="close-modal"
+            onclick="closeModal()"
+        >
+            Funga
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const API_URL = "/api/orders";
+
+let lastOrder = null;
+
+
+/* MENU */
+
+function toggleMenu(){
+
+    const nav = document.getElementById("navLinks");
+
+    nav.classList.toggle("active");
+
+}
+
+function closeMenu(){
+
+    document.getElementById("navLinks")
+        .classList.remove("active");
+
+}
+
+
+/* DARK MODE */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark")
+    );
+
+}
+
+if(localStorage.getItem("darkMode") === "true"){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.style.display = "block";
+
+    setTimeout(function(){
+
+        toast.style.display = "none";
+
+    },3000);
+
+}
+
+
+/* COPY PAYMENT NUMBER */
+
+function copyNumber(number){
+
+    navigator.clipboard.writeText(number)
+        .then(function(){
+
+            showToast("Nimero yakoporowe neza!");
+
+        })
+        .catch(function(){
+
+            showToast("Nimero: " + number);
+
+        });
+
+}
+
+
+/* ORDER FORM */
+
+document.getElementById("orderForm")
+.addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    const service =
+        document.getElementById("service").value;
+
+    const description =
+        document.getElementById("description").value.trim();
+
+    const paymentMethod =
+        document.getElementById("paymentMethod").value;
+
+    const transactionId =
+        document.getElementById("transactionId").value.trim();
+
+
+    if(!name || !phone || !service){
+
+        showToast("Uzuza amakuru yose asabwa.");
+
+        return;
+
+    }
+
+
+    const order = {
+
+        name:name,
+
+        phone:phone,
+
+        service:service,
+
+        description:description,
+
+        paymentMethod:paymentMethod,
+
+        transactionId:transactionId
+
+    };
+
+
+    try{
+
+        const response = await fetch(
+            API_URL,
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(order)
+            }
+        );
+
+
+        if(response.ok){
+
+            const data = await response.json();
+
+            lastOrder = data.order || order;
+
+        }else{
+
+            saveLocalOrder(order);
+
+            lastOrder = order;
+
+        }
+
+    }catch(error){
+
+        saveLocalOrder(order);
+
+        lastOrder = order;
+
+    }
+
+
+    document.getElementById("successModal")
+        .style.display = "flex";
+
+    document.getElementById("orderForm")
+        .reset();
+
+});
+
+
+/* LOCAL FALLBACK */
+
+function saveLocalOrder(order){
+
+    let orders =
+        JSON.parse(
+            localStorage.getItem("serivisiOrders") || "[]"
+        );
+
+    order.id = Date.now();
+
+    order.date = new Date().toISOString();
+
+    order.status = "Pending";
+
+    orders.push(order);
+
+    localStorage.setItem(
+        "serivisiOrders",
+        JSON.stringify(orders)
+    );
+
+}
+
+
+/* WHATSAPP */
+
+function sendWhatsApp(){
+
+    if(!lastOrder){
+
+        return;
+
+    }
+
+
+    const message =
+`Muraho Serivisi Zacu Rwanda.
+
+Nshaka serivisi:
+${lastOrder.service}
+
+Amazina:
+${lastOrder.name}
+
+Telephone:
+${lastOrder.phone}
+
+Payment Method:
+${lastOrder.paymentMethod || "Ntabwo navuze"}
+
+Transaction ID:
+${lastOrder.transactionId || "Ntabwo navuze"}
+
+Ibisobanuro:
+${lastOrder.description || "Nta bisobanuro byinshi."}`;
+
+
+    const url =
+        "https://wa.me/250780973540?text="
+        + encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("successModal")
+        .style.display = "none";
+
+}
+
+
+/* ADMIN */
+
+function adminLogin(){
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+    if(password === "peterkk"){
+
+        document.getElementById("loginArea")
+            .style.display = "none";
+
+        document.getElementById("adminArea")
+            .style.display = "block";
+
+        loadOrders();
+
+    }else{
+
+        document.getElementById("loginMessage")
+            .textContent = "Password siyo.";
+
+    }
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHTML(value){
+
+    if(value === null || value === undefined){
+
+        return "";
+
+    }
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* LOAD ORDERS */
+
+async function loadOrders(){
+
+    let orders = [];
+
+    try{
+
+        const response =
+            await fetch(API_URL);
+
+        if(response.ok){
+
+            const data =
+                await response.json();
+
+            orders = data.orders || [];
+
+        }
+
+    }catch(error){
+
+        orders = [];
+
+    }
+
+
+    const localOrders =
+        JSON.parse(
+            localStorage.getItem("serivisiOrders") || "[]"
+        );
+
+
+    if(localOrders.length > 0){
+
+        orders =
+            orders.concat(localOrders);
+
+    }
+
+
+    displayOrders(orders);
+
+}
+
+
+/* DISPLAY ORDERS */
+
+function displayOrders(orders){
+
+    const container =
+        document.getElementById("ordersList");
+
+    if(orders.length === 0){
+
+        container.innerHTML =
+            "<p style='margin-top:20px;'>Nta orders ziraboneka.</p>";
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    orders.forEach(function(order){
+
+        const div =
+            document.createElement("div");
+
+        div.className = "order";
+
+        div.innerHTML = `
+
+            <strong>Order ID:</strong>
+            ${escapeHTML(order.id)}
+
+            <br>
+
+            <strong>Amazina:</strong>
+            ${escapeHTML(order.name)}
+
+            <br>
+
+            <strong>Telephone:</strong>
+            ${escapeHTML(order.phone)}
+
+            <br>
+
+            <strong>Serivisi:</strong>
+            ${escapeHTML(order.service)}
+
+            <br>
+
+            <strong>Ibisobanuro:</strong>
+            ${escapeHTML(order.description)}
+
+            <br>
+
+            <strong>Payment:</strong>
+            ${escapeHTML(order.paymentMethod || "Ntabwo yavuze")}
+
+            <br>
+
+            <strong>Transaction ID:</strong>
+            ${escapeHTML(order.transactionId || "Ntabwo yavuze")}
+
+            <br>
+
+            <strong>Status:</strong>
+            ${escapeHTML(order.status || "Pending")}
+
+            <br>
+
+            <strong>Date:</strong>
+            ${escapeHTML(order.date || "")}
+
+            <br>
+
+            <button
+                class="delete-btn"
+                onclick="deleteOrder('${order.id}')"
+            >
+                Siba Order
+            </button>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* DELETE ONE ORDER */
+
+async function deleteOrder(id){
+
+    if(!confirm("Urashaka koko gusiba iyi order?")){
+
+        return;
+
+    }
+
+
+    try{
+
+        await fetch(
+            API_URL + "/" + id,
+            {
+                method:"DELETE"
+            }
+        );
+
+    }catch(error){
+
+    }
+
+
+    let orders =
+        JSON.parse(
+            localStorage.getItem("serivisiOrders") || "[]"
+        );
+
+
+    orders =
+        orders.filter(function(order){
+
+            return String(order.id) !== String(id);
+
+        });
+
+
+    localStorage.setItem(
+        "serivisiOrders",
+        JSON.stringify(orders)
+    );
+
+
+    showToast("Order yasibwe.");
+
+    loadOrders();
+
+}
+
+
+/* CLEAR ALL ORDERS */
+
+async function clearOrders(){
+
+    if(!confirm("Urashaka koko gusiba orders zose?")){
+
+        return;
+
+    }
+
+
+    try{
+
+        await fetch(
+            API_URL,
+            {
+                method:"DELETE"
+            }
+        );
+
+    }catch(error){
+
+    }
+
+
+    localStorage.removeItem("serivisiOrders");
+
+    showToast("Orders zose zasibwe.");
+
+    loadOrders();
+
+}
+
+</script>
+
+</body>
+</html>
