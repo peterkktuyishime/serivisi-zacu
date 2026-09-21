@@ -8,6 +8,13 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// ==========================================
+// SERVE PUBLIC WEBSITE FILES
+// logo.png, images, CSS, JS, etc.
+// ==========================================
+
+app.use(express.static(__dirname));
+
 const ordersFile = path.join(__dirname, "orders.json");
 
 // ==========================================
@@ -540,7 +547,7 @@ async function deleteOrder(id) {
     } else {
 
         alert(
-            "Ntibyashobotse gusiba order."
+            "Ntibyashobokye gusiba order."
         );
 
     }
@@ -577,7 +584,7 @@ async function clearOrders() {
     } else {
 
         alert(
-            "Ntibyashobotse gusiba orders."
+            "Ntibyashobokye gusiba orders."
         );
 
     }
